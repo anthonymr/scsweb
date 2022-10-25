@@ -25,10 +25,12 @@
 export default {
     data() {
         return {
-            categories: ['Cereales',
-                'Condimentos',
+            categories: [
+                'Ver todo',
                 'Infusiones',
                 'Manicería',
+                'Cereales',
+                'Condimentos',
                 'Otros'
             ],
 
@@ -40,7 +42,7 @@ export default {
                 'Z-A'
             ],
 
-            selectedCategory: 'Cereales',
+            selectedCategory: 'Ver todo',
             selectedSortBy: 'A-Z',
 
         }
@@ -50,10 +52,11 @@ export default {
 
 <style scoped>
 aside {
-    width: 250px;
-    height: 100vh;
+    width: 300px;
+    height: auto;
     padding: 20px 20px 20px 100px;
     background-color: var(--white);
+    box-sizing: border-box;
 }
 
 h5 {

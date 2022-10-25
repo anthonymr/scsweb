@@ -1,6 +1,6 @@
 <template>
     <section>
-        <marquee><span class="lighted">10% de descuento</span> en infusiones durante esta semana 
+        <marquee><span class="bolder">10% de descuento</span> en infusiones durante esta semana 
             <span class="shady">FLOR DE JAMAICA</span>
             <span class="shady">TILO EN HOJAS</span>
             <span class="shady">TE VERDE EN HOJAS</span>
@@ -22,11 +22,16 @@
         height: 30px;
         line-height: 30px;
         font-weight: 600;
-        color: var(--white);
+        color: var(--light-black);
         background-color: var(--black);
         border-bottom: 1px solid var(--border);
+        background-image: url('@/assets/table.webp');
     }
 
+    .bolder {
+        color: var(--black);
+        font-weight: 700;
+    }
     .shady{
         margin-left: 20px;
         text-transform:lowercase;

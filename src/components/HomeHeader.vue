@@ -36,9 +36,9 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    position: fixed;
+    /*position: fixed;
     top: 0px;
-    background-image: url('@/assets/table.webp');
+    background-image: url('@/assets/table.webp');*/
     background-size: 100%;
     z-index: 999;
   }

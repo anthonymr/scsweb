@@ -18,7 +18,7 @@
   --gray: rgb(100, 100, 100);
   --border: rgb(223, 223, 223);
   --placeholder: rgb(194, 194, 194);
-  --contrast: orange;
+  --contrast: rgb(230, 58, 52);
 
   --max-width: 1440px;
 }
