@@ -1,12 +1,12 @@
 <template>
     <article>
         <div class="picture">
-            <img :src="require('@/assets/items/' + item.picture)">
+            <img :src="require('@/assets/items/' + item.id + '.webp')">
         </div>
         <div class="description">
             <div class="title">{{ item.name }}</div>
             <div class="category">{{ item.category }}</div>
-            <div class="price"><span>(100g)</span>USD {{ item.price }}</div>
+            <div class="price"><span>(100g)</span>USD {{ item.price100 }}</div>
             <div class="aditional"><span>Contiene:</span> {{ item.description }}</div>
         </div>
     </article>
@@ -49,6 +49,7 @@ article {
 .title {
     font-size: 16px;
     font-weight: 600;
+    text-transform: capitalize;
 }
 
 .category {
