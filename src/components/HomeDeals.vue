@@ -19,9 +19,10 @@
 <style scoped>
     section {
         width: 100%;
-        height: 30px;
-        line-height: 30px;
+        height: 20px;
+        line-height: 20px;
         font-weight: 600;
+        font-size: 14px;
         color: var(--light-black);
         background-color: var(--black);
         border-bottom: 1px solid var(--border);

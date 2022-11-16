@@ -2,11 +2,11 @@
     <aside>
         <h5>Categorías</h5>
         <ul>
-            <li v-for="c in categories" :key="c" :class="{'selected': selectedCategory == c}" @click="selectedCategory = c">
+            <li v-for="c in categories" :key="c.category" :class="{'selected': currentCateogry == c.category}" @click="sercurrentCateogry(c)">
                 <div>
-                    <img src="@/assets/check.svg" v-if="selectedCategory == c">
+                    <img src="@/assets/check.svg" v-if="currentCateogry == c.category">
                 </div>
-                {{ c }}
+                {{ c.category }} ({{c.count}})
             </li>
         </ul>
         <h5>Ordenar por</h5>
@@ -22,18 +22,11 @@
 </template>
 
 <script>
+import serviceItems from '@/services/serviceItems';
+
 export default {
     data() {
         return {
-            categories: [
-                'Ver todo',
-                'Infusiones',
-                'Manicería',
-                'Cereales',
-                'Condimentos',
-                'Otros'
-            ],
-
             sortBy: [
                 'Categorías',
                 'Menor precio',
@@ -42,9 +35,37 @@ export default {
                 'Z-A'
             ],
 
-            selectedCategory: 'Ver todo',
             selectedSortBy: 'A-Z',
+        }
+    },
 
+    created(){
+        serviceItems.getCategories()
+        .then(response => {
+            const categories = response.data;
+
+            categories.unshift({
+                category: 'Ver todo',
+                count: categories.reduce((a,b) => a + parseInt(b.count), 0)
+            });
+
+            this.$store.commit('setCategories', categories);
+        })
+        .catch(e => console.error(e));
+    },
+
+    methods: {
+        sercurrentCateogry(category){
+            this.$store.commit('sercurrentCateogry', category);
+        }
+    },
+
+    computed: {
+        categories(){
+            return this.$store.state.categories;
+        },
+        currentCateogry(){
+            return this.$store.state.currentCateogry;
         }
     }
 }
@@ -52,7 +73,7 @@ export default {
 
 <style scoped>
 aside {
-    width: 300px;
+    width: 350px;
     height: auto;
     padding: 20px 20px 20px 100px;
     background-color: var(--white);

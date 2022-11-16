@@ -19,6 +19,8 @@
   --border: rgb(223, 223, 223);
   --placeholder: rgb(194, 194, 194);
   --contrast: rgb(230, 58, 52);
+  --blue: rgb(52, 99, 230);
+  --orange: rgb(230, 138, 52);
 
   --max-width: 1440px;
 }
